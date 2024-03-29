@@ -1,0 +1,247 @@
+[
+
+{
+	"test_description": "Create a Tree from text input (this test does not check order of nodes, but only their presence)",
+	"input": "a homo.txt 0 m 0",
+	"in_stdout": 
+	[
+	"mammalia",
+	"eutheria",
+	"primates",
+	"haplorrhini",
+	"catarrhini", "platyrrhini",
+	"cercopithecoidea", "hominoidea",
+	"hominidae", "hylobatidae",
+	"homininae", "ponginae", 
+	"gorilla", "homo", "pan",
+	"homoabilis", "homoerectus", "homosapiens", 
+	"homosapiensneanderthaliensis", "homosapienssapiens",
+	"pongo"
+	]
+},
+
+{
+	"test_description": "DELETE elements (recursive implementation) - one existing element, the other one not existing -",
+	"input": "a homo.txt 0 c homininae 0 r c alienusaliensis 0 r",
+	"in_stdout_ordered":
+	[
+	"operazione riuscita",
+	"operazione fallita"
+	]
+},
+
+{
+	"test_description": "DELETE elements (iterative implementation) - one existing element, the other one not existing -",
+	"input": "a homo.txt 0 c homininae 0 i c alienusaliensis 0 i",
+	"in_stdout_ordered":
+	[
+	"operazione riuscita",
+	"operazione fallita"
+	]
+},
+
+{
+	"test_description": "INSERT a single element, DELETE twice this element, re-INSERT element, DELETE it",
+	"input": "b $#$#$ alienusaliensis 0 c alienusaliensis 0 i c alienusaliensis 0 i b $#$#$ alienusaliensis 0 c alienusaliensis 0 i",
+	"in_stdout_ordered":
+	[
+	"microsecondi",
+	"operazione riuscita",
+	"operazione fallita",
+	"microsecondi",
+	"operazione riuscita"
+	]
+},
+
+{
+	"test_description": "Check FATHER of nodes (all existing ones and not existing ones)",
+	"input": "a homo.txt 0 d homosapienssapiens 0 d homosapiensneanderthaliensis 0 d pongo 0 d homosapiens 0 d homoabilis 0 d homoerectus 0 d gorilla 0 d homo 0 d pan 0 d homininae 0 d ponginae 0 d hominidae 0 d hylobatidae 0 d cercopithecoidea 0 d hominoidea 0 d catarrhini 0 d platyrrhini 0 d haplorrhini 0 d primates 0 d eutheria 0 d mammalia 0 d alienusaliensis 0",
+	"in_stdout_ordered":
+	[
+	"homosapiens",
+	"homosapiens",
+	"ponginae",
+	"homo",
+	"homo",
+	"homo",
+	"homininae",
+	"homininae",
+	"homininae",
+	"hominidae",
+	"hominidae",
+	"hominoidea",
+	"hominoidea",
+	"catarrhini",
+	"catarrhini",
+	"haplorrhini",
+	"haplorrhini",
+	"primates",
+	"eutheria",
+	"mammalia",
+	"$#$#$",
+	"$#$#$"
+	]
+},
+
+{
+	"test_description": "Check CHILDREN of all nodes",
+	"input": "a homo.txt 0 e mammalia 0 e eutheria 0 e primates 0 e haplorrhini 0 e catarrhini 0 e hominoidea 0 e hominidae 0 e homininae 0 e homo 0 e homosapiens 0 e ponginae 0",
+	"in_stdout":
+	[
+	"eutheria;",
+	"primates",
+	"haplorrhini",
+	"catarrhini",
+	"platyrrhini",
+	"cercopithecoidea",
+	"hominoidea",
+	"hominidae",
+	"ponginae",
+	"gorilla",
+	"homo",
+	"pan",
+	"homoabilis",
+	"homoerectus",
+	"homosapiens",
+	"homosapiensneanderthaliensis",
+	"homosapienssapiens",
+	"pongo"
+	]
+},
+
+{
+	"test_description": "Check DEGREE af all nodes",
+	"input": "a homo.txt 0 f mammalia 0 f eutheria 0 f primates 0 f haplorrhini 0 f catarrhini 0 f hominoidea 0 f hominidae 0 f homininae 0 f homo 0 f homosapiens 0 f ponginae 0",
+	"in_stdout_ordered":
+	[
+	"microsecondi",
+	"1",
+	"microsecondi",
+	"1",
+	"microsecondi",
+	"1",
+	"microsecondi",
+	"2",
+	"microsecondi",
+	"2",
+	"microsecondi",
+	"2",
+	"microsecondi",
+	"2",
+	"microsecondi",
+	"3",
+	"microsecondi",
+	"3",
+	"microsecondi",
+	"2",
+	"microsecondi",
+	"1"
+	]
+},
+
+{
+	"test_description": "Check ANCESTORS of all nodes (recursive implementation)",
+	"input": "a homo.txt 0 g eutheria 0 r g primates 0 r g haplorrhini 0 r g catarrhini 0 r g platyrrhini 0 r g cercopithecoidea 0 r g hominoidea 0 r g hominidae 0 r g hylobatidae 0 r g homininae 0 r g ponginae 0 r g gorilla 0 r g homo 0 r g pan 0 r g homoabilis 0 r g homoerectus 0 r g homosapiens 0 r g homosapiensneanderthaliensis 0 r g homoSapiensSapiens 0 r g pongo 0 r",
+	"in_stdout_ordered":
+	[
+	"mammalia",
+	"mammalia; eutheria;",
+	"mammalia; eutheria; primates;",
+	"mammalia; eutheria; primates; haplorrhini;",
+	"mammalia; eutheria; primates; haplorrhini;",
+	"mammalia; eutheria; primates; haplorrhini; catarrhini;",
+	"mammalia; eutheria; primates; haplorrhini; catarrhini;",
+	"mammalia; eutheria; primates; haplorrhini; catarrhini; hominoidea;",
+	"mammalia; eutheria; primates; haplorrhini; catarrhini; hominoidea;",
+	"mammalia; eutheria; primates; haplorrhini; catarrhini; hominoidea; hominidae;",
+	"mammalia; eutheria; primates; haplorrhini; catarrhini; hominoidea; hominidae;",
+	"mammalia; eutheria; primates; haplorrhini; catarrhini; hominoidea; hominidae; homininae;",
+	"mammalia; eutheria; primates; haplorrhini; catarrhini; hominoidea; hominidae; homininae;",
+	"mammalia; eutheria; primates; haplorrhini; catarrhini; hominoidea; hominidae; homininae;",
+	"mammalia; eutheria; primates; haplorrhini; catarrhini; hominoidea; hominidae; homininae; homo;",
+	"mammalia; eutheria; primates; haplorrhini; catarrhini; hominoidea; hominidae; homininae; homo;",
+	"mammalia; eutheria; primates; haplorrhini; catarrhini; hominoidea; hominidae; homininae; homo;",
+	"mammalia; eutheria; primates; haplorrhini; catarrhini; hominoidea; hominidae; homininae; homo; homosapiens;",
+	"mammalia; eutheria; primates; haplorrhini; catarrhini; hominoidea; hominidae; homininae; homo; homosapiens;",
+	"mammalia; eutheria; primates; haplorrhini; catarrhini; hominoidea; hominidae; ponginae;"
+	]
+},
+
+
+{
+	"test_description": "Check ANCESTORS of all nodes (iterative implementation)",
+	"input": "a homo.txt 0 g eutheria 0 i g primates 0 i g haplorrhini 0 i g catarrhini 0 i g platyrrhini 0 i g cercopithecoidea 0 i g hominoidea 0 i g hominidae 0 i g hylobatidae 0 i g homininae 0 i g ponginae 0 i g gorilla 0 i g homo 0 i g pan 0 i g homoabilis 0 i g homoerectus 0 i g homosapiens 0 i g homosapiensneanderthaliensis 0 i g homoSapiensSapiens 0 i g pongo 0 i",
+	"in_stdout_ordered":
+	[
+	"mammalia",
+	"mammalia; eutheria;",
+	"mammalia; eutheria; primates;",
+	"mammalia; eutheria; primates; haplorrhini;",
+	"mammalia; eutheria; primates; haplorrhini;",
+	"mammalia; eutheria; primates; haplorrhini; catarrhini;",
+	"mammalia; eutheria; primates; haplorrhini; catarrhini;",
+	"mammalia; eutheria; primates; haplorrhini; catarrhini; hominoidea;",
+	"mammalia; eutheria; primates; haplorrhini; catarrhini; hominoidea;",
+	"mammalia; eutheria; primates; haplorrhini; catarrhini; hominoidea; hominidae;",
+	"mammalia; eutheria; primates; haplorrhini; catarrhini; hominoidea; hominidae;",
+	"mammalia; eutheria; primates; haplorrhini; catarrhini; hominoidea; hominidae; homininae;",
+	"mammalia; eutheria; primates; haplorrhini; catarrhini; hominoidea; hominidae; homininae;",
+	"mammalia; eutheria; primates; haplorrhini; catarrhini; hominoidea; hominidae; homininae;",
+	"mammalia; eutheria; primates; haplorrhini; catarrhini; hominoidea; hominidae; homininae; homo;",
+	"mammalia; eutheria; primates; haplorrhini; catarrhini; hominoidea; hominidae; homininae; homo;",
+	"mammalia; eutheria; primates; haplorrhini; catarrhini; hominoidea; hominidae; homininae; homo;",
+	"mammalia; eutheria; primates; haplorrhini; catarrhini; hominoidea; hominidae; homininae; homo; homosapiens;",
+	"mammalia; eutheria; primates; haplorrhini; catarrhini; hominoidea; hominidae; homininae; homo; homosapiens;",
+	"mammalia; eutheria; primates; haplorrhini; catarrhini; hominoidea; hominidae; ponginae;"
+	]
+},
+
+{
+	"test_description": "Check LEAST COMMON ANCESTOR of different pairs of nodes",
+	"input": "a homo.txt 0 h eutheria eutheria 0 h pongo primates 0 h primates pongo 0 h pongo homosapienssapiens 0 h homosapienssapiens pongo 0 h homosapiensneanderthaliensis homosapienssapiens 0 h alienusaliensis pongo 0",
+	"in_stdout_ordered":
+	[
+	"mammalia",
+	"eutheria",
+	"eutheria",
+	"hominidae",
+	"hominidae",
+	"homosapiens",
+	"$#$#$"
+	]
+},
+
+{
+	"test_description": "Check if nodes are MEMBERs of the tree (existing and non-existing elements will be tested",
+	"input": "a homo.txt 0 i mammalia 0 i homosapiensneanderthaliensis 0 i homosapienssapiens 0 i pongo 0 i hylobatidae 0 i alienusaliensis 0",
+	"in_stdout_ordered": 
+	[
+	"microsecondi",
+	"vero",
+	"microsecondi",
+	"vero",
+	"microsecondi",
+	"vero",
+	"microsecondi",
+	"vero",
+	"microsecondi",
+	"vero",
+	"microsecondi",
+	"falso"
+	]
+},
+
+{ 
+	"test_description": "Check NUMBER of nodes (of entire tree and after two calls to DELETE)",
+	"input": "a homo.txt 0 l 0 c homosapienssapiens 0 r l 0 c homo 0 r l 0",
+	"in_stdout_ordered":
+	[
+	"microsecondi",
+	"21",
+	"microsecondi",
+	"20",
+	"microsecondi",
+	"19"
+	]
+}
+]
