@@ -1,0 +1,92 @@
+[
+{   "test_description": "Basic token (single digit number):\n\t8",
+	"input": "8",
+	"in_stdout_ordered": ["risultato: 8"]
+},
+{   "test_description": "Basic token (multiple digits number):\n\t888",
+	"input": "888",
+	"in_stdout_ordered": ["risultato: 888"]
+},
+{   "test_description": "Basic token (number with multiple digits again):\n\t2147483646)\n\t - maximum number for a signed integer represented with 32 bit -",
+	"input": "2147483646",
+	"in_stdout_ordered": ["risultato: 2147483646"]
+},
+{   "test_description": "Expression with parenthesis and sum:\n\t( 19 + 19 )",
+	"input": "( 19 + 19 )",
+	"in_stdout_ordered": ["risultato: 38"]
+},
+{   "test_description": "Expression with parenthesis and subtraction:\n\t( 19 - 19 )",
+	"input": "( 19 - 19 )",
+	"in_stdout_ordered": ["risultato: 0"]
+},
+{   "test_description": "Expression with parenthesis and multiplication:\n\t( 19 * 19 )",
+	"input": "( 19 * 19 )",
+	"in_stdout_ordered": ["risultato: 361"]
+},
+{   "test_description": "Nested parenthesis (level 1): \n\t( 7 * ( 4 + 24 ) )",
+	"input": "( 7 * ( 4 + 24 ) )",
+	"in_stdout_ordered": ["risultato: 196"]
+},
+{   "test_description": "Nested parenthesis (level 2): \n\t( ( ( 5 + 6 ) + ( 12 - 3 ) ) - 25 ) ",
+	"input": "( ( ( 5 + 6 ) + ( 12 - 3 ) ) - 25 )",
+	"in_stdout_ordered": ["risultato: -5"]
+},
+{   "test_description": "Nested parenthesis (level 3): \n\t( ( ( ( 51 + 64 ) + ( 112 - 43 ) ) - 215 ) + ( ( ( 8 + 22 ) + ( 98 + 7 ) ) - 5 ) ) ",
+	"input": "( ( ( ( 51 + 64 ) + ( 112 - 43 ) ) - 215 ) + ( ( ( 8 + 22 ) + ( 98 + 7 ) ) - 5 ) )",
+	"in_stdout_ordered": ["risultato: 99"]
+},	
+{   "test_description": "Nested parenthesis (level 100): \n\t( ( ( ( ( ( ( ( ( ( ( ... ( 1 + 1) + 1 ) + 1 ) .... + 1 )",
+	"input": "( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( 1 + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 ) + 1 )",
+	"in_stdout_ordered": ["risultato: 303"]
+},
+{   "test_description": "Expected \"errore lessicale\" since there are no spaces between parenthesis:\n\t((( 5 + 6 ) + ( 12 - 3 )) - 25 )",
+	"input": "((( 5 + 6 ) + ( 12 - 3 )) - 25 )",
+	"error": true,
+	"stderr": "errore lessicale\n"
+},
+{   "test_description": "Expected \"errore lessicale\" because of an unacceptable token:\n\t( ( ( 5 + 6 ) + ( 12 - 3 ) ) - 13a )",
+	"input": "( ( ( 5 + 6 ) + ( 12 - 3 ) ) - 13a )",
+	"error": true,
+	"stderr": "errore lessicale\n"
+},
+{   "test_description": "Expected \"errore sintattico\" - tokens are correct but syntax is not respected:\n\t( 8 9",
+	"input": "( 8 9",
+	"error": true,
+	"stderr": "errore sintattico\n"
+},
+{   "test_description": "Expected \"errore sintattico\" - tokens are correct but syntax is not respected\n\t because of missing parentheses:\n\t9 + 12",
+	"input": "9 + 12",
+	"error": true,
+	"stderr": "errore sintattico\n"
+},
+{   "test_description": "Expected \"errore sintattico\" - tokens are correct but syntax is not respected:\n\t( 5 + + )",
+	"input": "( 5 + + )",
+	"error": true,
+	"stderr": "errore sintattico\n"
+},
+{   "test_description": "Expected \"errore sintattico\" - tokens are correct but syntax is not respected:\n\t( - + 5 )",
+	"input": "( - + 5 )",
+	"error": true,
+	"stderr": "errore sintattico\n"
+},
+{   "test_description": "Expected \"errore sintattico\" - tokens are correct but syntax is not respected:\n\t( 5 5 5 )",
+	"input": "( 5 5 5 )",
+	"error": true,
+	"stderr": "errore sintattico\n"
+},
+{   "test_description": "Expected \"errore sintattico\" - tokens are correct but syntax is not respected:\n\t( ( ( 5 + 6 ) + ( 12 - 3 ) ) - ( + - (",
+	"input": "( ( ( 5 + 6 ) + ( 12 - 3 ) ) - ( + - ( ",
+	"error": true,
+	"stderr": "errore sintattico\n"
+},
+{   "test_description": "Expected \"errore sintattico\" - one parenthesis is not closed:\n\t( ( 5 + 6 )",
+	"input": "( ( 5 + 6 )",
+	"error": true,
+	"stderr": "errore sintattico\n"
+},
+{   "test_description": "Expected \"errore sintattico\" - missing parenthesis, stack ends up not empty:\n\t5 3 ( 3 + 2 )",
+	"input": "5 3 ( 3 + 2 )",
+	"error": true,
+	"stderr": "errore sintattico\n"
+}
+]
