@@ -1,0 +1,120 @@
+[
+
+{
+	"test_description": "INSERT new single element (k,v) in dictionary",
+	"input": "c Abgeordnetenhaus:(n.) See Legislature, Austria, Prussia.:0",
+	"in_stdout_ordered": 
+	[
+	"operazione riuscita"
+	]
+},
+
+{
+	"test_description": "INSERT new 10 single elements in dictionary (with same beginning letter)",
+	"input": "c Abasia:(n.) Inability to coordinate muscular actions properly in walking.:0 c Abgeordnetenhaus: (n.) See Legislature, Austria, Prussia.:0 c Abra: (n.) A narrow pass or defile; a break in a mesa.:0 c Abreaction: (n.) See Catharsis, below.:0 c Acclamation: (n.) the election of a pope or other ecclesiastic by unanimous consent of the electors, without a ballot.:0 c Ace: (n.) A single point won by a stroke, as in handball, rackets, etc.; in tennis, frequently, a point won by a service stroke.:0 c Acequia: (n.) A canal or trench for irrigating land.:0 c Acetol: (n.) Methyl ketol; also, any of various homologues of the same.:0 c Acetonaemia: (n.) Alt. of -nemia:0",
+	"in_stdout_ordered":
+	[
+	"operazione riuscita",
+	"operazione riuscita",
+	"operazione riuscita",
+	"operazione riuscita",
+	"operazione riuscita",
+	"operazione riuscita",
+	"operazione riuscita",
+	"operazione riuscita",
+	"operazione riuscita"
+	]
+},
+
+{
+	"test_description": "INSERT new 10 single elements in dictionary, but one is already present and should fail",
+	"input": "c Abasia:(n.) Inability to coordinate muscular actions properly in walking.:0 c Abgeordnetenhaus: (n.) See Legislature, Austria, Prussia.:0 c Abra: (n.) A narrow pass or defile; a break in a mesa.:0 c Abreaction: (n.) See Catharsis, below.:0 c Acclamation: (n.) In parliamentary usage, the act or method of voting orally and by groups rather than by ballot, esp. in elections;:0 c Acclamation: (n.) the election of a pope or other ecclesiastic by unanimous consent of the electors, without a ballot.:0 c Ace: (n.) A single point won by a stroke, as in handball, rackets, etc.; in tennis, frequently, a point won by a service stroke.:0 c Acequia: (n.) A canal or trench for irrigating land.:0 c Acetol: (n.) Methyl ketol; also, any of various homologues of the same.:0 c Acetonaemia: (n.) Alt. of -nemia:0",
+	"in_stdout_ordered":
+	[
+	"operazione riuscita",
+	"operazione riuscita",
+	"operazione riuscita",
+	"operazione riuscita",
+	"operazione riuscita",
+	"operazione fallita",
+	"operazione riuscita",
+	"operazione riuscita",
+	"operazione riuscita",
+	"operazione riuscita"
+	]
+},
+
+{
+	"test_description": "INSERT new 10 single elements in dictionary (with different beginning letters)",
+	"input": "c Abasia:(n.) Inability to coordinate muscular actions properly in walking.:0 c Bageordnetenhaus: (n.) See Legislature, Austria, Prussia.:0 c Cabra: (n.) A narrow pass or defile; a break in a mesa.:0 c Dobreaction: (n.) See Catharsis, below.:0 c Ecclamation: (n.) the election of a pope or other ecclesiastic by unanimous consent of the electors, without a ballot.:0 c Face: (n.) A single point won by a stroke, as in handball, rackets, etc.; in tennis, frequently, a point won by a service stroke.:0 c Gocequia: (n.) A canal or trench for irrigating land.:0 c Hacetol: (n.) Methyl ketol; also, any of various homologues of the same.:0 c Yocetonaemia: (n.) Alt. of -nemia:0",
+	"in_stdout_ordered":
+	[
+	"operazione riuscita",
+	"operazione riuscita",
+	"operazione riuscita",
+	"operazione riuscita",
+	"operazione riuscita",
+	"operazione riuscita",
+	"operazione riuscita",
+	"operazione riuscita",
+	"operazione riuscita"
+	]
+},
+
+{
+	"test_description": "INSERT a few elements in dictionary from file and SEARCH a few of them (some existing, some not)",
+	"input": "a engeng/a-short.txt 0 e Acetol 0 e Acetonaemia 0 e Andrea 0 e Acetonamia 0",
+	"in_stdout_ordered":
+	[
+	"L'operazione ha richiesto",
+	"microsecondi",
+	"(n.) Methyl ketol; also, any of various homologues of the same.",
+	"(n.) Alt. of -nemia",
+	"elemento non trovato",
+	"elemento non trovato"
+	]
+},
+
+{
+	"test_description": "INSERT a few elements in dictionary from file, DELETE a few of them (some existing, some not)",
+	"input": "a engeng/a-short.txt 0 d Acetol 0 d Acetonaemia 0 d Andrea 0 d Acetonamia 0",
+	"in_stdout_ordered":
+	[
+	"L'operazione ha richiesto",
+	"microsecondi",
+	"operazione riuscita",
+	"operazione riuscita",
+	"operazione fallita",
+	"operazione fallita"
+	]
+},
+
+{
+	"test_description": "Check STATEFULNESS of the single insert \n\t(1. input values by file 2. add (key,value); 3. check if an element present in the file values still exists)",
+	"input": "a engeng/a-short.txt 0 c Hallstatt :(a.) Alt. of Hallstattian:0 e Acetol 0 e Acetonaemia 0 e Hallstatt 0",
+	"in_stdout_ordered":
+	[
+	"L'operazione ha richiesto",
+	"microsecondi",
+	"operazione riuscita",
+	"(n.) Methyl ketol; also, any of various homologues of the same.",
+	"(n.) Alt. of -nemia",
+	"(a.) Alt. of Hallstattian"
+	]
+},
+
+{
+	"test_description": "INSERT a single element, DELETE twice this element, re-INSERT element, DELETE it",
+	"input": "c Hallstatt :(a.) Alt. of Hallstattian:0 d Hallstatt 0 d Hallstatt 0 c Hallstatt :(a.) Alt. of Hallstattian:0 d Hallstatt 0",
+	"in_stdout_ordered":
+	[
+	"operazione riuscita",
+	"operazione riuscita",
+	"operazione fallita",
+	"operazione riuscita",
+	"operazione riuscita"
+	]
+}
+
+
+]
