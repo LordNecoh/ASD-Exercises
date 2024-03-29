@@ -1,0 +1,152 @@
+[
+
+{
+	"test_description": "Create empty stacks and check if empty",
+	"input": "f 0 f 1 f 2 f 3 f 4 f 5 f 6 f 7 f 8 f 9",
+	"in_stdout_ordered": 
+	[
+	"stack vuoto", "stack vuoto", "stack vuoto",
+	"stack vuoto", "stack vuoto", "stack vuoto",
+	"stack vuoto", "stack vuoto", "stack vuoto"
+	]
+},
+
+{
+	"test_description": "Push() 10 elements",
+	"input": "a in-10.txt 0 n 0",
+	"in_stdout_ordered":
+	["86; 19; 97; 27; 52; 36; 29; 22; 81; 98;"]
+},
+
+{
+	"test_description": "Push() 10 elements and then Pop() 10 elements",
+	"input": "a in-10.txt 0 d 0 d 0 d 0 d 0 d 0 d 0 d 0 d 0 d 0 d 0",
+	"in_stdout_ordered":
+	[
+	"elemento rimosso: 86",
+	"elemento rimosso: 19",
+	"elemento rimosso: 97",
+	"elemento rimosso: 27",
+	"elemento rimosso: 52",
+	"elemento rimosso: 36",
+	"elemento rimosso: 29",
+	"elemento rimosso: 22",
+	"elemento rimosso: 81",
+	"elemento rimosso: 98"
+	]
+},
+
+{
+	"test_description": "Push() 10 elements and then Pop() 10 elements checking if error is \n\treturned by Pop() when stack is empty",
+	"input": "a in-10.txt 0 d 0 d 0 d 0 d 0 d 0 d 0 d 0 d 0 d 0 d 0 d 0",
+	"in_stdout_ordered":
+	[
+	"elemento rimosso: 86",
+	"elemento rimosso: 19",
+	"elemento rimosso: 97",
+	"elemento rimosso: 27",
+	"elemento rimosso: 52",
+	"elemento rimosso: 36",
+	"elemento rimosso: 29",
+	"elemento rimosso: 22",
+	"elemento rimosso: 81",
+	"elemento rimosso: 98",
+	"stack vuoto"
+	]
+}, 
+
+{
+	"test_description": "Push() 10 elements and then Pop() 10 elements checking if IsEmpty() \n\tconfirms stack is empty",
+	"input": "a in-10.txt 0 d 0 d 0 d 0 d 0 d 0 d 0 d 0 d 0 d 0 d 0 f 0",
+	"in_stdout_ordered":
+	[
+	"elemento rimosso: 86",
+	"elemento rimosso: 19",
+	"elemento rimosso: 97",
+	"elemento rimosso: 27",
+	"elemento rimosso: 52",
+	"elemento rimosso: 36",
+	"elemento rimosso: 29",
+	"elemento rimosso: 22",
+	"elemento rimosso: 81",
+	"elemento rimosso: 98",
+	"stack vuoto"
+	]
+}, 
+
+{
+	"test_description": "Top() on a stack of 10 elements",
+	"input": "a in-10.txt 0 e 0",
+	"in_stdout_ordered":
+	["elemento in cima allo stack: 86"]
+}, 
+
+{
+	"test_description": "Top() on empty stack",
+	"input": "e 0",
+	"in_stdout_ordered":
+	["stack vuoto"]
+}, 
+
+{
+	"test_description": "Alternating Top() and Pop() for 10 times on a stack of 10 elements",
+	"input": "a in-10.txt 0 e 0 d 0 e 0 d 0 e 0 d 0 e 0 d 0 e 0 d 0 e 0 d 0 e 0 d 0 e 0 d 0 e 0 d 0 e 0 d 0",
+	"in_stdout_ordered":
+	[
+	"elemento in cima allo stack: 86",
+	"elemento rimosso: 86",
+	"elemento in cima allo stack: 19",
+	"elemento rimosso: 19",
+	"elemento in cima allo stack: 97",
+	"elemento rimosso: 97",
+	"elemento in cima allo stack: 27",
+	"elemento rimosso: 27",
+	"elemento in cima allo stack: 52",
+	"elemento rimosso: 52",
+	"elemento in cima allo stack: 36",
+	"elemento rimosso: 36",
+	"elemento in cima allo stack: 29",
+	"elemento rimosso: 29",
+	"elemento in cima allo stack: 22",
+	"elemento rimosso: 22",
+	"elemento in cima allo stack: 81",
+	"elemento rimosso: 81",
+	"elemento in cima allo stack: 98",
+	"elemento rimosso: 98"
+	]
+}, 
+
+{
+	"test_description": "Alternating Push() and Top() for 5 times on an empty stack, \n\tthen alternating Top() and Pop() for 5 times",
+	"input": "c 101 0 e 0 c 102 0 e 0 c 103 0 e 0 c 104 0 e 0 c 105 0 e 0 d 0 e 0 d 0 e 0 d 0 e 0 d 0 e 0 d 0 e 0",
+	"in_stdout_ordered":
+	[
+	"elemento in cima allo stack: 101",
+	"elemento in cima allo stack: 102",
+	"elemento in cima allo stack: 103",
+	"elemento in cima allo stack: 104",
+	"elemento in cima allo stack: 105",
+	"elemento rimosso: 105",
+	"elemento in cima allo stack: 104",
+	"elemento rimosso: 104",
+	"elemento in cima allo stack: 103",
+	"elemento rimosso: 103",
+	"elemento in cima allo stack: 102",
+	"elemento rimosso: 102",
+	"elemento in cima allo stack: 101",
+	"elemento rimosso: 101"
+	]
+},
+
+{
+	"test_description": "Push an element, Pop twice, Push an element, Pop it",
+	"input": "c 42 0 d 0 d 0 c 23 0 d 0",
+	"in_stdout_ordered": [
+		"elemento rimosso: 42",
+		"stack vuoto",
+		"elemento rimosso: 23"
+	]
+
+}
+
+]
